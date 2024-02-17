@@ -1,0 +1,20 @@
+<h3 class="text-xl font-bold" >Form</h3>
+<form>
+  <label for="nameFilter" >Filter By User's Name :</label>
+  <input type="text" name="nameFilter" [(ngModel)] = "nameFilter" class="border-blue-500 border-2 rounded m-2"/>
+  <br/>
+  <label for="emailFilter" >Filter By User's E-mail :</label>
+  <input type="text" name="emailFilter" [(ngModel)] = "emailFilter" class="border-blue-500 border-2 rounded m-2"/>
+  <div >
+    <button (click)= filterUsers() class="bg-blue-400 text-white m-2 px-2 border-2 rounded-md" >Filter</button>
+  </div>  
+</form>
+
+<h3> User Details Fetched from API </h3>
+<!-- Track is very important to use @for it is just like the index for iteration-->
+@for( user of filteredUsers ; track user.name){
+  <p> User Name : {{user.name}}</p>
+  <p> User Email : {{user.email}}</p>
+  <br/>
+}
+
